@@ -1,17 +1,26 @@
 package com.takeyoursurvey.tys.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class HelloController {
 
+    @Value("${my-env.first}")
+    private String first;
 
-    @GetMapping("/index")
-    public String members() {
+    @Value("${my-env.second}")
+    private Integer second;
 
-        return "index";
+
+    @GetMapping("/hello")
+    String ping() {
+        return String.format(
+                "안녕! 설정된 정보는 FIRST = [%s], SECOND= [%d] !",
+                first,
+                second);
     }
-
 
 }
