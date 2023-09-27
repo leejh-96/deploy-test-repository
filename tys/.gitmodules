@@ -1,0 +1,3 @@
+[submodule "tys/tys-submodule"]
+	path = tys/tys-submodule
+	url = https://github.com/leejh-96/tys-submodule.git
